@@ -38,6 +38,8 @@
 
 body {
     margin: 0px;
+    overflow-x: hidden;
+    background-color: #D3D3D3;
 }
 
 #header {
@@ -58,7 +60,7 @@ body {
 
 }
 
-#main h1 {
+h1 {
     text-align: center;
     font-size: 48px;
     font-weight: bold;
@@ -66,7 +68,7 @@ body {
     font-family: cursive;
 }
 
-#main h2 {
+h2 {
     text-align: center;
     font-size: 36px;
     font-weight: bold;
@@ -120,16 +122,20 @@ body {
 
 #main {
     display: block;
+    margin: 0;
 }
 
 #testimonials {
-    display: none;
+    display: block;
+    margin: 0 0 0 100%;
 }
 
 #about {
-    display: none;
+    display: block;
+    margin: 0 0 0 200%;
 }
 
 #contact {
-    display: none;
+    display: block;
+    margin: 0 0 0 300%;
 }

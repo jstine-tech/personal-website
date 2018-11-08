@@ -4,15 +4,16 @@
     <meta charset="UTF-8">
     <title>Jonathan Stine - Aspiring Web Developer</title>
     <link rel="stylesheet" href="main.css">
+
 </head>
 <body>
     <header id="header"> <!-- links section -->
        <nav id="pages">
            <div id="pages-wrapper">
-                <a href="#">Home</a>
-                <a href="#">About</a>
-                <a href="#">Testimonials</a>
-                <a href="#">Contact</a>
+                <a href="#" onclick="switchPage(0)">Home</a>
+                <a href="#" onclick="switchPage(1)">About</a>
+                <a href="#" onclick="switchPage(2)">Testimonials</a>
+                <a href="#" onclick="switchPage(3)">Contact</a>
            </div>
         </nav>
         <nav id="social">
@@ -28,7 +29,7 @@
 
 
     </header>
-    <main>
+    <main id="content">
         <section id="main" class="section">
             <h1>Jonathan Stine</h1>
             <h2>Aspiring Web Developer</h2>
@@ -37,16 +38,18 @@
 
 
         <section id="about" class="section">
-            <p>Test Main</p>
+            <h1>Test About</h1>
         </section>
 
         <section id="testimonials" class="section">
-            <p>Test Main</p>
+            <h1>Test Testimonials</h1>
         </section>
 
         <section id="contact" class="section">
-            <p>Test Main</p>
+            <h1>Test Contact</h1>
         </section>
     </main>
+    <script src="js/jquery-3.3.1.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>
