@@ -1,5 +1,5 @@
 /* section code */
-    var currentSection = 0;
+ /*   var currentSection = 0;
     var sections = document.getElementsByClassName("section");
     var count = 0;
     var i;
@@ -31,8 +31,15 @@
                 currentSection=index;
             }
         }
-    }
-/*
+    } */
+
+ /*Recent changes:
+ 1. Update code to use OOP, will be useful when making testimonials page (instead of repeating code, just instantiate a new object)
+ 2. Have all sections move fully at once (instead of one at a time like earlier
+ 3. Currently only updates distance based on percentages (should be changed to allow any form of measurement)
+  */
+
+
   class sectionAnimation {
         constructor(sectionClass, animationTime, firstSection) { //expects a string, integer, and integer respectively
             this.class = sectionClass;
@@ -43,35 +50,36 @@
         }
 
         pause() {
-            count++;
+            this.count++;
         }
 
-        animation(section, mSeconds, direction) {
+        animation(section, mSeconds, direction, distance) { //expects an elementObject, an integer, a string with -= or +=, and a string
             $(section).animate({
-                marginLeft: direction + "100%"
+                marginLeft: direction + distance
             }, mSeconds);
         }
 
-        switchPage(index) {
+        switchPage(index) { //expects an integer
             var i;
             while(index !== this.currentSection) {
+                var distance = (100*Math.abs(index-this.currentSection)).toString() +"%"; //calculate total distance for all sections to move
                 if(index > this.currentSection) { //move to the right
                     for(i=0; i<this.sections.length; i++) {
-                        this.animation(this.sections[i], 500, "-=");
+                        this.animation(this.sections[i], 500, "-=", distance);
                     }
                     setTimeout(this.pause(), 510);
-                    this.currentSection++;
+                    this.currentSection=index;
                 }
 
                 if(index < this.currentSection) { //move to the left
                     for(i=0; i<this.sections.length; i++) {
-                        this.animation(this.sections[i], 500, "+=");
+                        this.animation(this.sections[i], 500, "+=", distance);
                     }
-                    setTimeout(pause(), 501);
-                    this.currentSection--;
+                    setTimeout(this.pause(), 510);
+                    this.currentSection=index;
                 }
             }
         }
     }
 
-    var resumeSections = sectionAnimation("section", 500, 0); */
+    var resumeSections = new sectionAnimation("section", 500, 0);
